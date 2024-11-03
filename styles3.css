@@ -1,0 +1,223 @@
+body {
+    background-color: #d0e7f9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Evitar scroll debido a los corazones */
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #a3d1ff;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-in-out;
+    position: relative; /* Necesario para el contexto del z-index */
+    z-index: 1; /* Asegura que el contenido esté por encima de los corazones */
+}
+
+h1 {
+    color: #007acc;
+    font-size: 2.5em;
+}
+
+.intro {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.photos img {
+    width: 150px;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.photos img:hover {
+    transform: scale(2.2);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005999;
+}
+
+.hidden {
+    display: none;
+    font-size: 1.2em;
+    color: #007acc;
+    margin-top: 10px;
+    animation: fadeInMessage 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInMessage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Sobres en los lados */
+.envelope {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-25%);
+    font-size: 2em;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.left-envelope {
+    left: 10px;
+}
+
+.right-envelope {
+    right: 10px;
+}
+
+.envelope:hover {
+    transform: translateY(-25%) scale(1.1);
+}
+
+/* Notas que se despliegan desde los sobres */
+.note {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-15%, -15%);
+    width: 200px;
+    padding: 15px;
+    background-color: #fff3cd;
+    border: 1px solid #f1c40f;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 0.5em;
+    color: #333;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+/* Posición de las notas */
+.left-note {
+    left: 60px;
+    top: 50%;
+}
+
+.right-note {
+    right: 60px;
+    top: 50%;
+    transform: translate(-100%, -50%);
+}
+
+/* Nota visible al hacer clic */
+.note.visible {
+    display: block;
+    animation: fadeIn 0.5s ease;
+    max-height: 200px; /* Altura suficiente para que el texto se muestre */
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+#inspirational-message {
+    font-size: 0.3em;
+    color: #000000;
+    text-align: center;
+    margin-top: 20px;
+    font-style: Arial;
+    animation: fadeInOut 3s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+.heart {
+    position: absolute;
+    bottom: -100px;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    transform: rotate(0deg);
+    animation: float 5s ease-in infinite;
+}
+
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%; /* Hace que los bordes sean redondeados */
+}
+
+.heart::before {
+    top: -15px;
+    left: 0;
+}
+
+.heart::after {
+    left: 15px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+}
+.spotify-link {
+    width: 100px;
+    height: auto;
+    margin: 15px 0;
+    transition: transform 0.3s ease;
+}
+
+.spotify-link:hover {
+    transform: scale(2.2);
+}
+.dedication-message {
+    font-size: 0.9em;
+    color: #007acc;
+    margin-top: 2px;
+    font-style: italic;
+}
+
